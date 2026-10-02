@@ -1,0 +1,332 @@
+:root {
+            --bg-dark: #0f172a;
+            --surface-dark: #1e293b;
+            --surface-accent: rgba(56, 189, 248, 0.1);
+            --border-color: #334155;
+            --accent-blue: #38bdf8;
+            --accent-green: #34d399;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-subtle: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* Sticky Company Navigation */
+        header {
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.025em;
+        }
+
+        .brand-logo span {
+            color: var(--accent-blue);
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Company Hero */
+        .hero {
+            padding: 4.5rem 1.5rem 3.5rem;
+            text-align: center;
+            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 75%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-title span {
+            color: var(--accent-blue);
+        }
+
+        .hero-subtitle {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 620px;
+            margin: 0 auto 1.5rem;
+        }
+
+        main {
+            flex: 1;
+            max-width: 960px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Products Showcase Card */
+        .product-card {
+            background-color: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 2rem;
+            align-items: center;
+            transition: border-color 0.2s ease;
+        }
+
+        .product-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .product-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-badge {
+            display: inline-block;
+            background-color: var(--surface-accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--accent-blue);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .feature-bullets {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-bullets li {
+            color: var(--text-main);
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-bullets li::before {
+            content: "✓";
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Google Play Store Badge Button */
+        .btn-playstore {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: #000;
+            color: #fff;
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-playstore:hover {
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+            background-color: #090d16;
+        }
+
+        .btn-playstore svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* App Media Visual Container */
+        .product-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .app-image {
+            width: 100%;
+            max-width: 140px;
+            /* Restricts image to a clean size */
+            height: 140px;
+            /* Maintains natural aspect ratio */
+            border-radius: 1.5rem;
+            /* Gives your icons modern rounded corners */
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-preview-box {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .app-preview-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #0f172a;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 8px 16px -4px rgba(56, 189, 248, 0.3);
+        }
+
+        /* Contact Box */
+        .contact-box {
+            background-color: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box a {
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .contact-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Corporate Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-subtle);
+            font-size: 0.85rem;
+        }
+
+        footer p+p {
+            margin-top: 0.4rem;
+            font-size: 0.8rem;
+        }
+
+        /* Pro Accent Extensions */
+        .pro-card {
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .pro-card:hover {
+            border-color: rgba(251, 191, 36, 0.6);
+        }
+
+        .pro-badge {
+            background-color: rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.4);
+            color: #fbbf24;
+        }
+
+        .btn-pro:hover {
+            border-color: #fbbf24;
+        }

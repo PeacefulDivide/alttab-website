@@ -4,343 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AltTab Technologies LLC | Android Software & Utilities</title>
+    <title>AltTab Technologies LLC | Independent Software Development Studio</title>
     <meta name="description"
-        content="Independent Android software development company focusing on custom camera rendering, low-latency utilities, and mobile hardware efficiency.">
-    <style>
-        :root {
-            --bg-dark: #0f172a;
-            --surface-dark: #1e293b;
-            --surface-accent: rgba(56, 189, 248, 0.1);
-            --border-color: #334155;
-            --accent-blue: #38bdf8;
-            --accent-green: #34d399;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --text-subtle: #64748b;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        /* Sticky Company Navigation */
-        header {
-            background-color: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .brand-logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--text-main);
-            text-decoration: none;
-            letter-spacing: -0.025em;
-        }
-
-        .brand-logo span {
-            color: var(--accent-blue);
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-left: 1.5rem;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
-
-        /* Company Hero */
-        .hero {
-            padding: 4.5rem 1.5rem 3.5rem;
-            text-align: center;
-            background: radial-gradient(circle at top, #1e293b 0%, #0f172a 75%);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .hero-title {
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            letter-spacing: -0.04em;
-            margin-bottom: 0.75rem;
-        }
-
-        .hero-title span {
-            color: var(--accent-blue);
-        }
-
-        .hero-subtitle {
-            color: var(--text-muted);
-            font-size: 1.15rem;
-            max-width: 620px;
-            margin: 0 auto 1.5rem;
-        }
-
-        main {
-            flex: 1;
-            max-width: 960px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 3.5rem 1.5rem;
-        }
-
-        .section-header {
-            margin-bottom: 2rem;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-            letter-spacing: -0.02em;
-        }
-
-        .section-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        /* Products Showcase Card */
-        .product-card {
-            background-color: var(--surface-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 1rem;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            display: grid;
-            grid-template-columns: 1fr 220px;
-            gap: 2rem;
-            align-items: center;
-            transition: border-color 0.2s ease;
-        }
-
-        .product-card:hover {
-            border-color: rgba(56, 189, 248, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .product-card {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .product-badge {
-            display: inline-block;
-            background-color: var(--surface-accent);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            color: var(--accent-blue);
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.2rem 0.6rem;
-            border-radius: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-        }
-
-        .product-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.25rem;
-            line-height: 1.6;
-        }
-
-        .feature-bullets {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-bullets li {
-            color: var(--text-main);
-            font-size: 0.9rem;
-            margin-bottom: 0.4rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .feature-bullets li::before {
-            content: "✓";
-            color: var(--accent-green);
-            font-weight: bold;
-        }
-
-        /* Google Play Store Badge Button */
-        .btn-playstore {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            background-color: #000;
-            color: #fff;
-            border: 1px solid var(--border-color);
-            padding: 0.6rem 1.2rem;
-            border-radius: 0.5rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-playstore:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-2px);
-            background-color: #090d16;
-        }
-
-        .btn-playstore svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-        }
-
-        /* App Media Visual Container */
-        .product-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .app-image {
-            width: 100%;
-            max-width: 140px;
-            /* Restricts image to a clean size */
-            height: 140px;
-            /* Maintains natural aspect ratio */
-            border-radius: 1.5rem;
-            /* Gives your icons modern rounded corners */
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
-        }
-
-        .app-preview-box {
-            width: 100%;
-            height: 240px;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 0.75rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 1rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .app-preview-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            color: #0f172a;
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            box-shadow: 0 8px 16px -4px rgba(56, 189, 248, 0.3);
-        }
-
-        /* Contact Box */
-        .contact-box {
-            background-color: var(--surface-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 0.75rem;
-            padding: 2.5rem;
-            text-align: center;
-        }
-
-        .contact-box h2 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-box p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-box a {
-            color: var(--accent-blue);
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .contact-box a:hover {
-            text-decoration: underline;
-        }
-
-        /* Corporate Footer */
-        footer {
-            border-top: 1px solid var(--border-color);
-            padding: 2rem 1.5rem;
-            text-align: center;
-            color: var(--text-subtle);
-            font-size: 0.85rem;
-        }
-
-        footer p+p {
-            margin-top: 0.4rem;
-            font-size: 0.8rem;
-        }
-
-        /* Pro Accent Extensions */
-        .pro-card {
-            border-color: rgba(251, 191, 36, 0.3);
-        }
-
-        .pro-card:hover {
-            border-color: rgba(251, 191, 36, 0.6);
-        }
-
-        .pro-badge {
-            background-color: rgba(251, 191, 36, 0.1);
-            border-color: rgba(251, 191, 36, 0.4);
-            color: #fbbf24;
-        }
-
-        .btn-pro:hover {
-            border-color: #fbbf24;
-        }
-    </style>
+        content="Independent software company focusing on high-performance Android applications and Windows desktop utilities.">
+    <Link rel="stylesheet" href="style.css">
+        
+    <meta property="og:title" content="AltTab Technologies LLC | Independent Software Development Studio">
+    <meta property="og:description"
+        content="Independent software development studio focusing on private high-performance Android apps and Windows utilities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alttabtech.com/index.html">
 </head>
 
 <body>
@@ -349,110 +22,33 @@
         <div class="nav-container">
             <a href="#" class="brand-logo">AltTab<span>.</span></a>
             <nav class="nav-links">
-                <a href="#products">Products</a>
-                <a href="#contact">Contact & Support</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="products.html">Products</a>
+                <a href="contact.html">Contact</a>
             </nav>
         </div>
     </header>
 
     <section class="hero">
         <h1 class="hero-title">AltTab <span>Technologies</span></h1>
-        <p class="hero-subtitle">Independent software studio specializing in high-performance Android applications,
-            custom rendering utilities, and mobile tools.</p>
+        <p class="hero-subtitle">Independent software studio focusing on high-performance Android applications and
+            Windows desktop utilities.</p>
     </section>
 
     <main>
-        <!-- Published Software Section -->
-        <section id="products">
-            <div class="section-header">
-                <h2 class="section-title">Software Applications</h2>
-                <p class="section-desc">Mobile applications engineered and maintained by AltTab Technologies LLC.</p>
-            </div>
-
-            <!-- Product Card: Lumen Lens -->
-            <div class="product-card">
-                <div class="product-info">
-                    <span class="product-badge">Standard Edition</span>
-                    <h3 class="product-title">LumaLens: OLED Screen Dimmer</h3>
-                    <p class="product-desc">
-                        A specialized eye-care utility engineered for photophobia, light sensitivity, and night use.
-                        Utilizes a physical sub-pixel mesh filter to safely dim AMOLED screens beyond system limits
-                        without flicker.
-                    </p>
-                    <ul class="feature-bullets">
-                        <li>Sub-pixel mesh overlay for flicker-free low brightness</li>
-                        <li>Active burn-in protection via customizable pixel-shifting</li>
-                        <li>Privacy-first: Zero data collection or third-party trackers</li>
-                    </ul>
-                    <!-- Google Play Store Link -->
-                    <a href="https://play.google.com/store/apps/details?id=com.github.peacefuldivide.lumalens&pcampaignid=web_share"
-                        target="_blank" class="btn-playstore" rel="noopener">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                        </svg>
-                        Get Free on Google Play
-                    </a>
-                </div>
-
-                <!-- Product Icon & App Card Visual -->
-                <div class="product-visual">
-                    <div class="app-preview-box">
-                        <img src="images/LumaLens.png" alt="LumaLens Free App Icon" class="app-image"
-                            style="margin-bottom: 0.75rem;">
-                        <strong style="color: var(--text-main); margin-bottom: 0.25rem;">LumaLens Free</strong>
-                        <span>v1.0.3 &bull; Android</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Product Card: Lumen Lens Pro-->
-            <div class="product-card pro-card">
-                <div class="product-info">
-                    <span class="product-badge pro-badge">Pro Edition</span>
-                    <h3 class="product-title">LumaLens: OLED Dimmer Pro</h3>
-                    <p class="product-desc">
-                        The full-featured premium suite for total OLED screen control. Unlocks advanced additional
-                        filter features, additional quick setting toggles, filtering up to 75%, and unlocked pixel
-                        shifting interval.
-                    </p>
-                    <ul class="feature-bullets">
-                        <li>Includes all core LumaLens dimming features</li>
-                        <li>Additional quick setting toggles for 0% and 75%</li>
-                        <li>Unlocks full in-app intensity slider up to 75%</li>
-                        <li>Unlocks pixel shifting interval range to 30 through 600 seconds</li>
-                    </ul>
-                    <!-- Google Play Store Link -->
-                    <a href="https://play.google.com/store/apps/details?id=com.github.peacefuldivide.lumalens.pro&pcampaignid=web_share"
-                        target="_blank" class="btn-playstore" rel="noopener">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
-                        </svg>
-                        Get Pro on Google Play
-                    </a>
-                </div>
-
-                <!-- Product Icon & App Card Visual -->
-                <div class="product-visual">
-                    <div class="app-preview-box">
-                        <img src="images/LumaLensPRO.png" alt="LumaLens Pro App Icon" class="app-image"
-                            style="margin-bottom: 0.75rem;">
-                        <strong style="color: var(--text-main); margin-bottom: 0.25rem;">LumaLens Pro</strong>
-                        <span>v1.0.2 &bull; Android</span>
-                    </div>
-                </div>
-            </div>
+        <section class="section-header">
+            <h2 class="section-title">Welcome to AltTab Technologies</h2>
+            <p class="section-desc">We build precision utilities engineered for Android and Windows.</p>
         </section>
 
-        <!-- Company Contact Section -->
-        <section id="contact">
-            <div class="contact-box">
-                <h2>Corporate Support & Business Inquiries</h2>
-                <p>Have technical questions regarding LumaLens or potential software partnerships?</p>
-                <a href="mailto:contact@alttabtech.com">contact@alttabtech.com</a>
-            </div>
-        </section>
+        <div class="contact-box" style="text-align: left;">
+            <h2>Engineering Modern Software Solutions</h2>
+            <p>Explore our flagship privacy-first applications designed to optimize screen health, manage battery life,
+                and provide advanced controls without bloat.</p>
+            <a href="products.html">Explore All Products</a>
+        </div>
+
     </main>
 
     <footer>
