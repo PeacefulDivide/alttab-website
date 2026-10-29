@@ -7,7 +7,7 @@
             --accent-green: #34d399;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --text-subtle: #64748b;
+            --text-subtle: #8896ab;
         }
 
         * {
@@ -65,8 +65,24 @@
             transition: color 0.2s;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--accent-blue);
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-links a:first-child {
+                margin-left: 0;
+            }
+
+            .nav-links a {
+                margin-left: 1rem;
+            }
         }
 
         /* Company Hero */
@@ -310,6 +326,230 @@
         footer p+p {
             margin-top: 0.4rem;
             font-size: 0.8rem;
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent-blue);
+        }
+
+        .btn-disabled {
+            color: var(--text-muted);
+            cursor: default;
+        }
+
+        .btn-disabled:hover {
+            border-color: var(--border-color);
+            transform: none;
+            background-color: #000;
+        }
+
+        /* Screenshot gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+        }
+
+        .gallery-phones {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-phones {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 3rem;
+            background-color: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            font-size: 0.9rem;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .compare-table th {
+            color: var(--text-main);
+        }
+
+        .compare-table td {
+            color: var(--text-muted);
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .card-link {
+            margin-left: 1rem;
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Home page */
+        .featured {
+            grid-template-columns: 1fr 1.2fr;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .featured {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-card {
+            background-color: var(--surface-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .app-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .app-card img {
+            width: 96px;
+            height: 96px;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .app-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .app-card p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .app-platform {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-blue);
+        }
+
+        .privacy-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            text-align: center;
+        }
+
+        .privacy-strip div {
+            background-color: var(--surface-accent);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+        }
+
+        .privacy-strip strong {
+            color: var(--accent-green);
+            font-size: 1.05rem;
+        }
+
+        .privacy-strip p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .strip-link {
+            text-align: center;
+            margin: 1rem 0 3rem;
+        }
+
+        .strip-link a {
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .strip-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Legal / long-form pages */
+        .legal h2 {
+            font-size: 1.25rem;
+            margin: 2rem 0 0.5rem;
+        }
+
+        .legal p,
+        .legal li {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .legal ul {
+            padding-left: 1.5rem;
+        }
+
+        .legal a {
+            color: var(--accent-blue);
         }
 
         /* Pro Accent Extensions */
